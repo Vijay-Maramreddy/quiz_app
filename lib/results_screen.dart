@@ -27,22 +27,24 @@ class ResultsScreen extends StatelessWidget{
     final summaryData = getSummaryData();
     final numTotalQuestions=questions.length;
     final numCorrectQuestions=summaryData.where((data) =>data['user_answer']==data['correct_answer'] ).length;
-    return SizedBox(
-      width:double.infinity,
-      child:Container(
-        margin:const EdgeInsets.all(40),
-        child:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('you answered $numCorrectQuestions correct out of $numTotalQuestions',),
-            const SizedBox(height: 30,),
-            QuestionsSummary(summaryData),
-            const SizedBox(height: 30,),
-            TextButton(onPressed: (){}, child:const Text('Restart Quiz!'),
-            )
-          ],
+    return Center(
+      child: SizedBox(
+        width:double.infinity,
+        child:Container(
+          margin:const EdgeInsets.all(40),
+          child:Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('you answered $numCorrectQuestions correct out of $numTotalQuestions',),
+              const SizedBox(height: 30,),
+              QuestionsSummary(summaryData),
+              const SizedBox(height: 30,),
+              TextButton(onPressed: (){}, child:const Text('Restart Quiz!'),
+              )
+            ],
+          )
         )
-      )
+      ),
     );
   }
 }
